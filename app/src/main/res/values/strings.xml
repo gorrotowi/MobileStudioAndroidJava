@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AndroidJava101</string>
+    <string name="saludo_inicial">Hola Androides de Java!</string>
+    <string name="saludo" translatable="false">Hola Androides Java en su clase 101</string>
+    <string name="saludar">Saludar</string>
+    <string name="otro_saludo">Otro saludo random</string>
+    <string name="curso">Android Apps Java</string>
+    <string name="login">Login</string>
+    <string name="write_your_email">Escrite tu mail</string>
+    <string name="password">Contraseña</string>
+    <string name="title_activity_master">MasterActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+</resources>

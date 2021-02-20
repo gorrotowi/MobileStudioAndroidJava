@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android Java 101 EN</string>
+    <string name="saludo_inicial">Hello Androides of Java!</string>
+    <string name="saludar">Say Hello</string>
+    <string name="otro_saludo">Another random gretting</string>
+    <string name="curso">Android Java Apps</string>
+</resources>
