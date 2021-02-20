@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTopForm"
@@ -43,12 +43,10 @@
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:src="@drawable/img_logo_surf"
-        app:layout_constraintBottom_toBottomOf="@id/guidelineHeader"
+        app:layout_constraintBottom_toBottomOf="@id/imgHeaderLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineHeader"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintTop_toTopOf="@id/imgHeaderLogin" />
 
     <TextView
         android:id="@+id/txtAppName"
