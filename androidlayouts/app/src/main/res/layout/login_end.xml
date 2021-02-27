@@ -82,11 +82,25 @@
         app:layout_constraintTop_toBottomOf="@id/edtxtEmail" />
 
     <Button
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="Login"
+        app:layout_constraintBottom_toTopOf="@id/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/black"
+        android:text="Register"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@id/guidelineBottomForm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
