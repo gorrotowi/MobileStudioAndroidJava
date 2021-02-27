@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnAddItem;
     AdapterMain adapterMain;
 
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         rcMain = findViewById(R.id.rcMain);
         btnAddItem = findViewById(R.id.btnAddItem);
+
+
 
         adapterMain = new AdapterMain(getDataSource());
 
