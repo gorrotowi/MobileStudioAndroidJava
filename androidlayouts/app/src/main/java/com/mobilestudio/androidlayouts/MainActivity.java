@@ -1,15 +1,18 @@
 package com.mobilestudio.androidlayouts;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.transition.TransitionManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isConstraintSet = false;
 
     private ImageView imgLog;
+    private TextView txtAppName;
     private Button btnLogin;
     private ConstraintLayout rootContainer;
 
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         rootContainer = findViewById(R.id.rootContainer);
         imgLog = findViewById(R.id.imgLogoLogin);
+        txtAppName = findViewById(R.id.txtAppName);
         btnLogin = findViewById(R.id.btnLogin);
 
         contraintStart.clone(rootContainer);
@@ -46,10 +51,13 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> {
             Intent intentToHome = new Intent(this, HomeActivity.class);
 
-            ActivityOptionsCompat optionsActivity = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            Pair<View, String> pairImage = Pair.create(imgLog, imgLog.getTransitionName());
+            Pair<View, String> pairText = Pair.create(txtAppName, txtAppName.getTransitionName());
+
+            ActivityOptions optionsActivity = ActivityOptions.makeSceneTransitionAnimation(
                     this,
-                    imgLog,
-                    getString(R.string.transition_image_logo)
+                    pairImage,
+                    pairText
             );
 
             startActivity(intentToHome, optionsActivity.toBundle());
