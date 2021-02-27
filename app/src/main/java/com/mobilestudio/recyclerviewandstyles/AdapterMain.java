@@ -1,5 +1,6 @@
 package com.mobilestudio.recyclerviewandstyles;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,17 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
-    List<String> sourceData = new ArrayList<>();
+    private List<String> sourceData;
+    private ItemTap onTap;
 
-    public AdapterMain() {
-        sourceData.add("Item 1");
-        sourceData.add("Item 2");
-        sourceData.add("Item 3");
+    public AdapterMain(List<String> sourceData) {
+        this.sourceData = sourceData;
     }
 
     @NonNull
@@ -32,12 +31,35 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bindView(sourceData.get(position));
+        holder.bindView(sourceData.get(holder.getAdapterPosition()));
+        holder.itemView.findViewById(R.id.imgItemMain).setOnClickListener(v -> {
+            onTap.OnTapItem(holder.getAdapterPosition(), sourceData.get(holder.getAdapterPosition()));
+        });
     }
 
     @Override
     public int getItemCount() {
         return sourceData.size();
+    }
+
+
+    public void addItem(String dataItem) {
+        sourceData.add(dataItem + "" + sourceData.size());
+        notifyItemInserted(sourceData.size());
+        Log.i("SourceData", sourceData.toString());
+    }
+
+    public void addOnItemTap(ItemTap onTap) {
+        this.onTap = onTap;
+    }
+
+    public void removeItem(int position) {
+        sourceData.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    interface ItemTap {
+        void OnTapItem(int position, String data);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
