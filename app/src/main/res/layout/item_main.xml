@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/bg_blue_rounded"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
     android:padding="8dp">
 
     <ImageView
         android:id="@+id/imgItemMain"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/ic_alien"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtItemMain"
-        android:layout_width="match_parent"
+        android:id="@+id/txtItemMainTitle"
+        style="@style/ItemTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgItemMain"
+        app:layout_constraintTop_toTopOf="@id/imgItemMain"
         tools:text="Item Text" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/txtItemMainSubTitle"
+        style="@style/ItemSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Item Text"
+        app:layout_constraintBottom_toBottomOf="@+id/imgItemMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgItemMain"
+        app:layout_constraintTop_toBottomOf="@+id/txtItemMainTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

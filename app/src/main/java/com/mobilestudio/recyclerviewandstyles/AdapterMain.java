@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,10 +14,10 @@ import java.util.List;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
-    private List<String> sourceData;
+    private List<Contact> sourceData;
     private ItemTap onTap;
 
-    public AdapterMain(List<String> sourceData) {
+    public AdapterMain(List<Contact> sourceData) {
         this.sourceData = sourceData;
     }
 
@@ -43,8 +44,8 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
     }
 
 
-    public void addItem(String dataItem) {
-        sourceData.add(dataItem + "" + sourceData.size());
+    public void addItem(Contact dataItem) {
+        sourceData.add(dataItem);
         notifyItemInserted(sourceData.size());
         Log.i("SourceData", sourceData.toString());
     }
@@ -59,7 +60,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
     }
 
     interface ItemTap {
-        void OnTapItem(int position, String data);
+        void OnTapItem(int position, Contact data);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,9 +69,12 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
             super(itemView);
         }
 
-        public void bindView(String data) {
-            TextView txtItem = itemView.findViewById(R.id.txtItemMain);
-            txtItem.setText(data);
+        public void bindView(Contact data) {
+            ImageView imgItem = itemView.findViewById(R.id.imgItemMain);
+            TextView txtItem = itemView.findViewById(R.id.txtItemMainTitle);
+
+            imgItem.setImageResource(data.getImage());
+            txtItem.setText(data.getName());
         }
     }
 }

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         rcMain.setAdapter(adapterMain);
 
         btnAddItem.setOnClickListener(v -> {
-            adapterMain.addItem("New Item");
+            adapterMain.addItem(new Contact(R.drawable.ic_tent, "New Item"));
         });
 
         adapterMain.addOnItemTap((position, data) -> {
@@ -49,10 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private List<String> getDataSource() {
-        List<String> fakeData = new ArrayList<>();
+    private List<Contact> getDataSource() {
+        List<Contact> fakeData = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
-            fakeData.add("Item " + i);
+            if (i % 2 == 0) {
+                fakeData.add(new Contact(R.drawable.ic_alien, "Item " + i));
+            } else {
+                fakeData.add(new Contact(R.drawable.ic_globe, "Item " + i));
+            }
         }
         return fakeData;
     }
