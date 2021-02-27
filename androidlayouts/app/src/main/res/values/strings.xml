@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">AndroidLayouts</string>
-    <string name="header">Header</string>
-    <string name="transition_image_logo">transition_image_logo</string>
-    <string name="transition_appname">transition_appname</string>
-</resources>
