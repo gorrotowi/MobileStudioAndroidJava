@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "RecyclerViewAndStyles"
+rootProject.name = "LifeCycleAndFragments"

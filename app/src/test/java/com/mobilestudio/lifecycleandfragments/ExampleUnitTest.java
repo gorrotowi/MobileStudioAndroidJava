@@ -1,4 +1,4 @@
-package com.mobilestudio.recyclerviewandstyles;
+package com.mobilestudio.lifecycleandfragments;
 
 import org.junit.Test;
 
