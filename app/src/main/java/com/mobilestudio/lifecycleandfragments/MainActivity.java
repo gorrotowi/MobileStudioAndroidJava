@@ -2,37 +2,39 @@ package com.mobilestudio.lifecycleandfragments;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.mobilestudio.lifecycleandfragments.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     String TAG = MainActivity.class.getSimpleName();
 
-    String KEY_COUNTER = "KEY_COUNTER";
+    ActivityMainBinding binding;
 
-    TextView txtHello;
+    String KEY_COUNTER = "KEY_COUNTER";
 
     int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        txtHello = findViewById(R.id.txtHello);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+
+        setContentView(binding.getRoot());
 
         if (savedInstanceState != null) {
             counter = savedInstanceState.getInt(KEY_COUNTER);
-            txtHello.setText("Counter " + counter);
+            binding.txtHello.setText("Counter " + counter);
         }
         Log.e(TAG, "OnCreate");
 
-        txtHello.setOnClickListener(v -> {
+        binding.txtHello.setOnClickListener(v -> {
             counter = counter + 1;
-            txtHello.setText("Counter " + counter);
+            binding.txtHello.setText("Counter " + counter);
         });
 
     }
