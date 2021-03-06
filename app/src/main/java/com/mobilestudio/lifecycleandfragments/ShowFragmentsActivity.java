@@ -1,5 +1,6 @@
 package com.mobilestudio.lifecycleandfragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,19 +9,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mobilestudio.lifecycleandfragments.fragments.DetailMailFragment;
 import com.mobilestudio.lifecycleandfragments.fragments.ListMailFragment;
+import com.mobilestudio.lifecycleandfragments.models.Mail;
 
 public class ShowFragmentsActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnShow1;
     Button btnShow2;
 
+    ListMailFragment fragmentMails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_fragments);
+
+        fragmentMails = new ListMailFragment();
+
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragmentContainer, new ListMailFragment())
+                .add(R.id.fragmentContainer, fragmentMails)
                 .commit();
 
         btnShow1 = findViewById(R.id.btnFrag1);
@@ -29,6 +36,17 @@ public class ShowFragmentsActivity extends AppCompatActivity implements View.OnC
         btnShow1.setOnClickListener(this);
         btnShow2.setOnClickListener(this);
 
+        fragmentMails.setOnMailListener(this::showMailDetail);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    public Mail getRandomMail() {
+        return new Mail("RANDOM", "RANDOM");
     }
 
     @Override
@@ -47,5 +65,12 @@ public class ShowFragmentsActivity extends AppCompatActivity implements View.OnC
                     .replace(R.id.fragmentContainer, new DetailMailFragment())
                     .commit();
         }
+    }
+
+    public void showMailDetail(Mail mail) {
+        Intent intentShowDetail = new Intent(this, MailDetailActivity.class);
+        intentShowDetail.putExtra("title", mail.getTitle());
+        intentShowDetail.putExtra("subject", mail.getSubject());
+        startActivity(intentShowDetail);
     }
 }
