@@ -27,16 +27,36 @@ public class ShowFragmentsActivity extends AppCompatActivity implements View.OnC
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragmentContainer, fragmentMails)
+                .replace(R.id.fragmentContainer, fragmentMails)
                 .commit();
 
         btnShow1 = findViewById(R.id.btnFrag1);
         btnShow2 = findViewById(R.id.btnFrag2);
 
-        btnShow1.setOnClickListener(this);
-        btnShow2.setOnClickListener(this);
+        if (btnShow1 != null) {
+            btnShow1.setOnClickListener(this);
+            btnShow2.setOnClickListener(this);
+        }
 
-        fragmentMails.setOnMailListener(this::showMailDetail);
+        fragmentMails.setOnMailListener(mail -> {
+
+            if (findViewById(R.id.fragmentContainerDetail) != null) {
+                // replace fragment
+                Bundle arguments = new Bundle();
+                arguments.putString("title", mail.getTitle());
+                arguments.putString("subject", mail.getSubject());
+                arguments.putString("content", getString(R.string.lorem_mail));
+                DetailMailFragment fragmentMail = new DetailMailFragment();
+                fragmentMail.setArguments(arguments);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainerDetail, fragmentMail)
+                        .commit();
+            } else {
+                showMailDetail(mail);
+            }
+
+        });
 
     }
 
@@ -67,7 +87,7 @@ public class ShowFragmentsActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    public void showMailDetail(Mail mail) {
+    private void showMailDetail(Mail mail) {
         Intent intentShowDetail = new Intent(this, MailDetailActivity.class);
         intentShowDetail.putExtra("title", mail.getTitle());
         intentShowDetail.putExtra("subject", mail.getSubject());
