@@ -1,33 +1,51 @@
 package com.mobilestudio.lifecycleandfragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     String TAG = MainActivity.class.getSimpleName();
 
+    String KEY_COUNTER = "KEY_COUNTER";
+
     TextView txtHello;
 
-    int counter;
+    int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e(TAG, "OnCreate");
+
         txtHello = findViewById(R.id.txtHello);
+
+        if (savedInstanceState != null) {
+            counter = savedInstanceState.getInt(KEY_COUNTER);
+            txtHello.setText("Counter " + counter);
+        }
+        Log.e(TAG, "OnCreate");
+
         txtHello.setOnClickListener(v -> {
-//            Toast.makeText(this, TAG, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, SecondActivity.class);
-            startActivity(intent);
+            counter = counter + 1;
+            txtHello.setText("Counter " + counter);
         });
 
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putInt(KEY_COUNTER, counter);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
