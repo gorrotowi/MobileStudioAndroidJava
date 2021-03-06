@@ -1,5 +1,6 @@
 package com.mobilestudio.lifecycleandfragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -33,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, "OnCreate");
 
         binding.txtHello.setOnClickListener(v -> {
-            counter = counter + 1;
-            binding.txtHello.setText("Counter " + counter);
+//            counter = counter + 1;
+//            binding.txtHello.setText("Counter " + counter);
+            startActivity(new Intent(this, ShowFragmentsActivity.class));
         });
 
     }
