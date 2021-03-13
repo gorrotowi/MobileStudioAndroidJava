@@ -24,7 +24,7 @@ public class MailDetailActivity extends AppCompatActivity {
 
         DetailMailFragment fragment = new DetailMailFragment();
         Bundle argsFragment = new Bundle();
-        argsFragment.putString("title", title);
+        argsFragment.putString(DetailMailFragment.EXTRA_TITLE, title);
         argsFragment.putString("subject", subject);
         argsFragment.putString("content", "asdkjfasdlkfjadslfknwjefinvasdjkvnaldskfjqoi sdf qdosfqwjdf qowdf adf");
 

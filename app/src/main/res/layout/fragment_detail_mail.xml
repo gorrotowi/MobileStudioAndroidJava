@@ -21,4 +21,48 @@
         android:layout_marginTop="16dp"
         tools:text="@string/hello_blank_fragment" />
 
+    <Button
+        android:id="@+id/btnWebMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Open mail url" />
+
+    <Button
+        android:id="@+id/btnCallMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Call number" />
+
+    <Button
+        android:id="@+id/btnSendNumberMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Send number" />
+
+
+    <Button
+        android:id="@+id/btnCalendarMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Add meet" />
+
+    <Button
+        android:id="@+id/btnOpenMaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Open meet location" />
+
+
+    <Button
+        android:id="@+id/btnShareEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Share event" />
+
 </LinearLayout>
