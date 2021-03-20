@@ -28,9 +28,16 @@
         android:name="com.mobilestudio.android_105_navigation.fragments.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second">
-        <action
-            android:id="@+id/action_secondFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment" />
+        <argument
+            android:name="username"
+            android:defaultValue="mobilestudio"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="email"
+            android:defaultValue="email@sample.com"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"

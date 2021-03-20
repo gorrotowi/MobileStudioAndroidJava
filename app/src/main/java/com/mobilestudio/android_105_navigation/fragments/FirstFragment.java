@@ -43,7 +43,13 @@ public class FirstFragment extends BaseFragment {
         Button btnThird = requireActivity().findViewById(R.id.btnGoThird);
 
         btnSecond.setOnClickListener(v -> {
-            NavDirections action = FirstFragmentDirections.actionFirstFragmentToSecondFragment();
+            NavDirections action = FirstFragmentDirections
+                    .actionFirstFragmentToSecondFragment();
+
+            FirstFragmentDirections.ActionFirstFragmentToSecondFragment action1 = FirstFragmentDirections.actionFirstFragmentToSecondFragment();
+            action1.setUsername("sebastianUser");
+            action1.setEmail("adsf@mymail.com");
+
             Navigation.findNavController(requireActivity(), R.id.navHostFragment).navigate(action);
         });
 
