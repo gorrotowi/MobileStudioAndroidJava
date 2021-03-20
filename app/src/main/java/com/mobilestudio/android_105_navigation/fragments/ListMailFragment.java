@@ -10,17 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.mobilestudio.android_105_navigation.adapters.AdapterMail;
+import com.mobilestudio.android_105_navigation.adapters.AdapterMailKotlin;
 import com.mobilestudio.android_105_navigation.databinding.FragmentListMailBinding;
 import com.mobilestudio.android_105_navigation.models.Mail;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
 
 public class ListMailFragment extends BaseFragment {
 
     private FragmentListMailBinding binding;
     private AdapterMail adapter;
+    private AdapterMailKotlin adapterMailKotlin;
 
     private OnMail listener;
 
@@ -36,6 +41,7 @@ public class ListMailFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = new AdapterMail(getFakeMails());
+        adapterMailKotlin = new AdapterMailKotlin(getFakeMails());
 
         adapter.setOnItemClickListener(mail -> {
             Log.i("Mail", mail.getTitle());
@@ -43,6 +49,21 @@ public class ListMailFragment extends BaseFragment {
             if (listener != null) {
                 listener.getMail(mail);
             }
+        });
+
+        adapterMailKotlin.setOnItemClickListener(new Function1<Mail, Unit>() {
+            @Override
+            public Unit invoke(Mail mail) {
+                return null;
+            }
+        });
+
+        adapterMailKotlin.setOnItemClickListener(mailKt -> {
+            Log.e("KT", mailKt.getTitle());
+            if (listener != null) {
+                listener.getMail(mailKt);
+            }
+            return Unit.INSTANCE;
         });
     }
 
@@ -65,7 +86,7 @@ public class ListMailFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.rcMails.setAdapter(adapter);
+        binding.rcMails.setAdapter(adapterMailKotlin);
     }
 
     @Override

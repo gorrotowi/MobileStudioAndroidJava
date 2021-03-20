@@ -25,4 +25,12 @@ public class Mail {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
+    @Override
+    public String toString() {
+        return "Mail{" +
+                "title='" + title + '\'' +
+                ", subject='" + subject + '\'' +
+                '}';
+    }
 }

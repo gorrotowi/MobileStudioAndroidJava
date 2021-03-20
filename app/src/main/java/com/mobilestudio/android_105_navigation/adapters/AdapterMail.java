@@ -39,7 +39,9 @@ public class AdapterMail extends RecyclerView.Adapter<AdapterMail.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bindView(sourceData.get(position));
         holder.binding.getRoot().setOnClickListener(v -> {
-            listener.OnClick(sourceData.get(position));
+            if (listener != null) {
+                listener.OnClick(sourceData.get(position));
+            }
         });
     }
 
