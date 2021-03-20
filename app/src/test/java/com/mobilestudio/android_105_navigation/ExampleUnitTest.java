@@ -1,4 +1,4 @@
-package com.mobilestudio.lifecycleandfragments;
+package com.mobilestudio.android_105_navigation;
 
 import org.junit.Test;
 

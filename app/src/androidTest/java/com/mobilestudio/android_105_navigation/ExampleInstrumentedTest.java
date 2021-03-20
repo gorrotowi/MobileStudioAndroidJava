@@ -1,4 +1,4 @@
-package com.mobilestudio.lifecycleandfragments;
+package com.mobilestudio.android_105_navigation;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.mobilestudio.lifecycleandfragments", appContext.getPackageName());
+        assertEquals("com.mobilestudio.android_105_navigation", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.mobilestudio.lifecycleandfragments.models;
+package com.mobilestudio.android_105_navigation.models;
 
 public class Mail {
 

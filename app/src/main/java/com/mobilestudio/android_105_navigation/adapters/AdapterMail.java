@@ -1,4 +1,4 @@
-package com.mobilestudio.lifecycleandfragments.adapters;
+package com.mobilestudio.android_105_navigation.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mobilestudio.lifecycleandfragments.databinding.ItemMailBinding;
-import com.mobilestudio.lifecycleandfragments.models.Mail;
+import com.mobilestudio.android_105_navigation.databinding.ItemMailBinding;
+import com.mobilestudio.android_105_navigation.models.Mail;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.mobilestudio.lifecycleandfragments.fragments;
+package com.mobilestudio.android_105_navigation.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,17 +8,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
-import com.mobilestudio.lifecycleandfragments.adapters.AdapterMail;
-import com.mobilestudio.lifecycleandfragments.databinding.FragmentListMailBinding;
-import com.mobilestudio.lifecycleandfragments.models.Mail;
+import com.mobilestudio.android_105_navigation.adapters.AdapterMail;
+import com.mobilestudio.android_105_navigation.databinding.FragmentListMailBinding;
+import com.mobilestudio.android_105_navigation.models.Mail;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ListMailFragment extends Fragment {
+public class ListMailFragment extends BaseFragment {
 
     private FragmentListMailBinding binding;
     private AdapterMail adapter;
@@ -41,7 +40,9 @@ public class ListMailFragment extends Fragment {
         adapter.setOnItemClickListener(mail -> {
             Log.i("Mail", mail.getTitle());
             Log.i("Mail", mail.getSubject());
-            listener.getMail(mail);
+            if (listener != null) {
+                listener.getMail(mail);
+            }
         });
     }
 
@@ -65,6 +66,11 @@ public class ListMailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.rcMails.setAdapter(adapter);
+    }
+
+    @Override
+    public String getName() {
+        return "Mails";
     }
 
     public interface OnMail {
