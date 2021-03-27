@@ -34,11 +34,11 @@ public class SecondFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String username = SecondFragmentArgs.fromBundle(getArguments()).getUsername();
-        String email = SecondFragmentArgs.fromBundle(getArguments()).getEmail();
+//        String username = SecondFragmentArgs.fromBundle(getArguments()).getUsername();
+//        String email = SecondFragmentArgs.fromBundle(getArguments()).getEmail();
 
-        Log.e("SECONDFRAGMENT", "" + username);
-        Log.e("SECONDFRAGMENT", "" + email);
+//        Log.e("SECONDFRAGMENT", "" + username);
+//        Log.e("SECONDFRAGMENT", "" + email);
     }
 
     @Override
