@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddContactActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:id="@+id/edtxtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edtxtLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/lastname"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edtxtPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/phone"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/edtxtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/btnAddUpdateContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/add_contact" />
+
+</LinearLayout>
