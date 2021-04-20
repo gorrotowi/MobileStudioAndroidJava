@@ -93,7 +93,7 @@ public class Api {
         });
     }
 
-    public LiveData<List<ProductResponse>> getAllProductsByLiveData() {
+    public MutableLiveData<List<ProductResponse>> getAllProductsByLiveData() {
         MutableLiveData<List<ProductResponse>> liveDataResponse = new MutableLiveData<>();
         services.allProducts().enqueue(new Callback<List<ProductResponse>>() {
             @Override

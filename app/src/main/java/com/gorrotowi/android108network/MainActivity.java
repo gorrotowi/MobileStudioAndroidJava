@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this).get(ProductsViewModel.class);
 
-        viewModel.productsList.observe(this, productResponses -> {
+        viewModel.productsList().observe(this, productResponses -> {
             binding.txtProductsSize.setText("Quantity of products " + productResponses.size());
         });
 

@@ -1,6 +1,7 @@
 package com.gorrotowi.android108network;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.gorrotowi.android108network.network.Api;
@@ -10,10 +11,14 @@ import java.util.List;
 
 public class ProductsViewModel extends ViewModel {
 
-    public LiveData<List<ProductResponse>> productsList;
+    private MutableLiveData<List<ProductResponse>> mutableProductList = new MutableLiveData<>();
     private Api api = new Api();
 
+    public LiveData<List<ProductResponse>> productsList() {
+        return mutableProductList;
+    }
+
     public void getAllProductsLiveData() {
-        productsList = api.getAllProductsByLiveData();
+        mutableProductList = api.getAllProductsByLiveData();
     }
 }
